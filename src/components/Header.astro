@@ -1,0 +1,40 @@
+---
+interface Props {
+    title: string;
+    body: string;
+    href: string;
+}
+
+type props = {
+    title: string;
+    body: string;
+    href: string;
+};
+
+const { href, title, body }: props = Astro.props;
+const data = [
+    {
+        title: 'Beans',
+        index: 1,
+    },
+    {
+        title: 'Yo',
+        index: 2,
+    },
+];
+---
+
+{
+    data.map(item => (
+        <li class='link-card'>
+            <a href={href}>
+                <h2>
+                    {{ title }}
+                    <span>&rarr;</span>
+                </h2>
+                <p>{body}</p>
+            </a>
+        </li>
+    ))
+}
+<style></style>

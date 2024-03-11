@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import VueComp from '../components/VueComp.vue';
+import ReactComp from '../components/ReactComp';
+import SharedStateNumber from '../components/SharedStateNumber';
+
+const type = 'Vue';
 ---
 
 <Layout title='Welcome to Astro Town Bro'>
@@ -39,6 +44,9 @@ import Card from '../components/Card.astro';
             />
             <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
         </p>
+        <SharedStateNumber client:load />
+        <VueComp client:load type={type} />
+        <ReactComp client:load title='React' />
         <ul role='list' class='link-card-grid'>
             <Card
                 href='https://docs.astro.build/'
@@ -125,3 +133,4 @@ import Card from '../components/Card.astro';
         padding: 0;
     }
 </style>
+../components/SharedStateNumber.tsx
